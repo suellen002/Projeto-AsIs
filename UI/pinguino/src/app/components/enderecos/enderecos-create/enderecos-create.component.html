@@ -1,0 +1,91 @@
+<mat-card class="container-fluid mat-elevation-z3">
+    <mat-card-title class="title">
+        <a>{{title}}</a>
+        <hr>
+    </mat-card-title>
+
+    <mat-card-content>
+        <div class="content">
+            <form [formGroup]="formGroup">
+                <div class="row">
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Código</mat-label>
+                            <input matInput readonly formControlName="id" name="id">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Cep</mat-label>
+                            <input matInput formControlName="cep" name="cep">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="field">
+                            <mat-label>Logradouro</mat-label>
+                            <input matInput formControlName="logradouro" name="logradouro">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Número</mat-label>
+                            <input matInput formControlName="numero" name="numero">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Complemento</mat-label>
+                            <input matInput formControlName="complemento" name="complemento">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="field">
+                            <mat-label>Municipio</mat-label>
+                            <mat-select formControlName="municipio">
+                                <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">
+                                    {{municipio.descricao}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Estado</mat-label>
+                            <mat-select formControlName="estado">
+                                <mat-option *ngFor="let estado of estados" value="{{estado.id}}" (onSelectionChange)="estadoSelectionChange($event)">
+                                    {{estado.descricao}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Pais</mat-label>
+                            <mat-select formControlName="pais">
+                                <mat-option *ngFor="let pais of paises" value="{{pais.id}}"
+                                    (onSelectionChange)="paisSelectionChange($event)">
+                                    {{pais.descricao}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+
+    <mat-card-footer>
+        <hr>
+        <button class="buttons btn btn-primary" mat-raised-button color="primary" (click)="save()">
+            Salvar
+        </button>
+        <button class="buttons btn" mat-raised-button (click)="cancel()">
+            Cancelar
+        </button>
+    </mat-card-footer>
+
+</mat-card>

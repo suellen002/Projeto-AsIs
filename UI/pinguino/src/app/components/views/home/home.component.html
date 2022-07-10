@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-12">
+        <form class="example-form">
+            <mat-form-field class="field" appearance="fill">
+                <mat-label>Pesquisar</mat-label>
+                <input type="text" matInput >
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3" *ngFor="let produto of produtos">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-subtitle>Vendedor | {{produto.fornecedor.nome}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://picsum.photos/300/300?random={{produto.id}}">
+            <mat-card-title>{{produto.nome}}</mat-card-title>
+            <mat-card-content>
+                <p>{{produto.descricao}}</p>
+                <h3 style="text-align: right">
+                    <h3></h3>{{produto.precovenda| currency: 'BRL'}}
+                </h3>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-raised-button [routerLink]="['/produtos', produto.id]">Detalhes</a>
+                <a mat-raised-button [routerLink]="['/produtos', produto.id]">Pedir</a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

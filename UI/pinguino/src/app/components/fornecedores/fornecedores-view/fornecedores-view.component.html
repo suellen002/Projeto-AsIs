@@ -1,0 +1,50 @@
+<mat-card class="home mat-elevation-z3">
+    <mat-card-title class="title">
+      <a>Fornecedor</a>
+      <hr />
+    </mat-card-title>
+
+    <div class="mat-elevation-z3">
+      <table data-toggle="table" class="table table-striped table-hover">
+  
+        <thead>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Cnpj</th>
+          <th>Email</th>
+          <th>Endereco</th>
+          <th>Ativo</th>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let row of fornecedores">
+            <td>{{row.id}}</td>
+            <td>{{row.nome}}</td>
+            <td>{{row.cnpjCpf}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.endereco}}</td>
+            <td>
+              <mat-checkbox [checked]="row.ativo" disabled></mat-checkbox>
+            </td>
+            <td>
+              <a class="edit-button" routerLink="/fornecedores/update/{{row.id}}">
+                <i class="material-icons"> edit </i>
+              </a>
+              <a class="delete-button" routerLink="/fornecedores/delete/{{row.id}}">
+                <i class="material-icons"> delete </i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+  
+      </table>
+  
+    </div>
+  
+    <div class="buttons">
+      <hr />
+      <button mat-raised-button color="primary" (click)="create()">
+        Novo Fornecedor
+      </button>
+    </div>
+  </mat-card>

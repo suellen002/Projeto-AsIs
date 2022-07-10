@@ -1,0 +1,32 @@
+<mat-card class="home mat-elevation-z3">
+  <mat-card-title class="title">
+    <a>Login</a>
+    <hr>
+  </mat-card-title>
+
+  <form class="form">
+
+    <div>
+      <mat-form-field class="width-25" >
+        <mat-label>Login</mat-label>
+        <input matInput [(ngModel)]="login.userName" name="usuario">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="width-25">
+        <mat-label>Senha</mat-label>
+        <input matInput [type]="'password'" [(ngModel)]="login.password" name="senha">
+      </mat-form-field>
+    </div>
+
+
+  </form>
+
+  <button mat-raised-button class="button" color="primary" (click)="logar()">
+    Entrar
+  </button>
+  <button mat-raised-button class="button" (click)="cancelar()">
+    Cancelar
+  </button>
+
+</mat-card>

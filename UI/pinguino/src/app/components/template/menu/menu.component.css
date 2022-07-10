@@ -1,0 +1,27 @@
+.nav-list a {
+    color: rgb(0, 0, 0);
+}
+
+.nav-list i {
+    padding-right: 5px;
+}
+
+.mat-list-item {
+    color: rgb(0, 0, 0);
+}
+
+.mat-list-item i {
+    padding-right: 5px;
+}
+
+.submenu {
+    overflow-y: hidden;
+    transition: transform 300ms ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    padding-left: 30px;
+}
+
+.submenu.expanded {
+    transform: scaleY(1);
+}

@@ -1,0 +1,68 @@
+<mat-card class="container-fluid mat-elevation-z3">
+    <mat-card-title class="title">
+        <a>{{title}}</a>
+        <hr>
+    </mat-card-title>
+
+    <mat-card-content>
+        <div class="content">
+            <form [formGroup]="formGroup">
+                <div class="row">
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Id</mat-label>
+                            <input matInput readonly formControlName="id" name="id"
+                                matTooltip="Código será gerado dinamicamente ao salvar">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <mat-form-field class="field">
+                            <mat-label>Nome</mat-label>
+                            <input matInput formControlName="nome" name="nome" matTooltip="Obrigatório">
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>CNPJ</mat-label>
+                            <input matInput formControlName="cnpjCpf" name="cnpjCpf" matTooltip="Obrigatório">
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field class="field">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput formControlName="email" name="email" matTooltip="Obrigatório">
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <mat-form-field class="field">
+                            <mat-label>Endereco</mat-label>
+                            <mat-select name="endereco" required formControlName="endereco">
+                                <mat-option *ngFor="let endereco of enderecos" [value]="endereco.id">
+                                    {{endereco.logradouro}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+
+    <mat-card-footer>
+        <hr>
+        <button class="buttons btn btn-primary" mat-raised-button color="primary" (click)="save()"
+            [disabled]="!formGroup.valid">
+            Salvar
+        </button>
+        <button class="btn" mat-raised-button (click)="cancel()">
+            Cancelar
+        </button>
+    </mat-card-footer>
+</mat-card>

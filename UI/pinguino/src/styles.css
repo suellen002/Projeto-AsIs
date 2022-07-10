@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.msg-success {
+  background-color: #0275d8;
+  color: #fff;
+}
+
+.msg-error {
+  background-color: #e35e6b;
+  color: #fff;
+}
+
+.edit-button> i {
+  color: #d9cd26;
+}
+
+.delete-button > i {
+  color: #e35e6b;
+}
+
+.field {
+  width: 100%;
+}
+
+.primaryForm {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+  
+.mat-card .mat-card-footer {
+  margin: 15px;
+}
+  
+.mat-card .mat-card-footer .buttons {
+  margin-right: 5px;
+}
+  
+.mat-card .mat-card-title {    
+  margin: 15px;
+}
+  
+.img-thumbnail {
+  width: 50px;
+  height: 50px;
+}
+
+.content {
+  margin-right: 15px;
+  margin-left: 15px;
+}

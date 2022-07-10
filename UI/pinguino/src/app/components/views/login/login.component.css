@@ -1,0 +1,33 @@
+.form {
+    min-width: 150px;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .width-100 {
+    width: 99%;        
+    padding-right: 1%;
+  }
+
+  .width-50 {
+    width: 49%;    
+    padding-right: 1%;
+  }
+
+  .width-75 {
+    width: 73%;
+    padding-right: 1%;
+  }
+
+  .width-25 {
+    width: 24%;
+    padding-right: 1%;
+  }
+
+  .title {
+    padding-bottom: 15px;
+  }
+
+  .button {
+    margin-right: 1%;
+  }

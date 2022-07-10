@@ -1,0 +1,20 @@
+.container-fluid {
+    height: 85vh;
+}
+
+.content {
+    padding: 15px;
+}
+
+.sidenav {
+    background-color: #ffffff;  
+    width: 30vh;
+}
+
+.sidenav a {
+    color: rgb(0, 0, 0);
+}
+
+.sidenav i {
+    padding-right: 5px;
+}

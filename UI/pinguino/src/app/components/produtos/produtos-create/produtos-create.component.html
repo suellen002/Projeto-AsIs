@@ -1,0 +1,84 @@
+<mat-card class="container-fluid mat-elevation-z3">
+    <mat-card-title class="title">
+        <a>{{title}}</a>
+        <hr>
+    </mat-card-title>
+
+    <mat-card-content>
+        <div class="content">
+            <form [formGroup]="formGroup">
+                <div class="row">
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Código</mat-label>
+                            <input matInput readonly formControlName="id" name="id"
+                                matTooltip="Código será gerado dinamicamente ao salvar">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <mat-form-field class="field">
+                            <mat-label>Nome</mat-label>
+                            <input matInput formControlName="nome" name="nome" matTooltip="Obrigatório">
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>SKU</mat-label>
+                            <input matInput formControlName="sku" name="sku" matTooltip="Obrigatório">
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field class="field">
+                            <mat-label>Cód. Barras</mat-label>
+                            <input matInput formControlName="codigobarras" name="codigobarras" matTooltip="Obrigatório">
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <mat-form-field class="field">
+                            <mat-label>Descricao</mat-label>
+                            <input matInput formControlName="descricao" name="descricao" matTooltip="Obrigatório">
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Fornecedor</mat-label>
+                            <mat-select name="fornecedor" required formControlName="fornecedor">
+                                <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">
+                                    {{fornecedor.nome}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field class="field">
+                            <mat-label>Preço Venda</mat-label>
+                            <input matInput formControlName="precovenda" name="precovenda" matTooltip="Obrigatório">
+                            <mat-error>Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+
+    <mat-card-footer>
+        <hr>
+        <button class="buttons btn btn-primary" mat-raised-button color="primary" (click)="save()"
+            [disabled]="!formGroup.valid">
+            Salvar
+        </button>
+        <button class="btn" mat-raised-button (click)="cancel()">
+            Cancelar
+        </button>
+    </mat-card-footer>
+
+</mat-card>

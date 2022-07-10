@@ -1,0 +1,61 @@
+<mat-card class="container-fluid mat-elevation-z3">
+    <mat-card-title class="title">
+        <a>Estados</a>
+        <hr>
+    </mat-card-title>
+
+    <mat-card-content>
+        <div class="content">
+            <form [formGroup]="formGroup">
+                <div class="row">
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Código</mat-label>
+                            <input matInput readonly formControlName="id" name="id"
+                                matTooltip="Código será gerado dinamicamente ao salvar">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="field">
+                            <mat-label>Descrição</mat-label>
+                            <input matInput formControlName="descricao" name="descricao" required>
+                            <mat-error>A Descrição é obrigatória</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Sigla</mat-label>
+                            <input matInput formControlName="sigla" name="sigla" required>
+                            <mat-error>A Sigla é obrigatória</mat-error>
+                        </mat-form-field>
+
+                    </div>
+                    <div class="col-3">
+                        <mat-form-field class="field">
+                            <mat-label>Pais</mat-label>
+                            <mat-select name="pais" required formControlName="pais">
+                                <mat-option *ngFor="let pais of paises" value="{{pais.id}}">
+                                    {{pais.descricao}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error>O País é obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+    <mat-card-footer>
+        <hr>
+        <button class="buttons btn btn-primary" mat-raised-button color="primary" (click)="save()"
+            [disabled]="!formGroup.valid">
+            Salvar
+        </button>
+        <button class="btn" mat-raised-button (click)="cancel()">
+            Cancelar
+        </button>
+    </mat-card-footer>
+</mat-card>

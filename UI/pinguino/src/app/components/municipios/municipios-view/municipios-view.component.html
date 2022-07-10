@@ -1,0 +1,48 @@
+<mat-card class="home mat-elevation-z3">
+  <mat-card-title class="title">
+    <a>Municipios</a>
+    <hr />
+  </mat-card-title>
+
+  <mat-card-content>
+    <div class="content">
+      <table data-toggle="table" class="table table-striped table-hover">
+
+        <thead>
+          <th>Código</th>
+          <th>Descrição</th>
+          <th>Estado</th>
+          <th>Ativo</th>
+          <th>Ações</th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let row of municipios.slice(5560, 99999)">
+            <td>{{row.id}}</td>
+            <td>{{row.descricao}}</td>
+            <td>{{row.estado.sigla}}</td>
+            <td>
+              <mat-checkbox [checked]="row.ativo" disabled></mat-checkbox>
+            </td>
+            <td>
+              <a class="edit-button" routerLink="/municipios/update/{{row.id}}">
+                <i class="material-icons"> edit </i>
+              </a>
+              <a class="delete-button" routerLink="/municipios/delete/{{row.id}}">
+                <i class="material-icons"> delete </i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+    <hr />
+    <button class="buttons" mat-raised-button color="primary" (click)="create()">
+      Novo Municipio
+    </button>
+  </mat-card-footer>
+</mat-card>
