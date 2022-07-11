@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  {{ pool }}
+  test
 
 variables:
   buildConfiguration: 'Release'
