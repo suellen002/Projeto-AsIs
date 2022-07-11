@@ -1,1 +1,3 @@
-https://github.com/MicrosoftDocs/pipelines-dotnet-core/blob/master/pipelines-dotnet-core.csproj#:~:text=%3CProject%20Sdk,%3C/Project%3E
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
