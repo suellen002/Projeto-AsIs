@@ -1,8 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <RootNamespace>pipelines_dotnet_core</RootNamespace>
-  </PropertyGroup>
-</Project>
+trigger:
+- master
+
+pool:
+  {{ pool }}
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
