@@ -1,0 +1,115 @@
+1. Introdução
+1.1 Objetivo
+Este documento detalha o projeto de automação de testes regressivos, utilizando Rest Assured e Cucumber. O objetivo principal é garantir a qualidade e confiabilidade das APIs, focando na execução de várias chamadas de API para verificar a integridade do fluxo existente no sistema.
+
+1.2 Escopo
+O escopo deste projeto abrange a automação de testes regressivos para serviços RESTful, com ênfase na execução de chamadas variadas às APIs para preservar a integridade do fluxo pré-existente.
+
+2. Ferramentas Utilizadas
+2.1 Rest Assured
+Rest Assured é uma biblioteca Java de código aberto que simplifica e eficientiza a automação de testes em serviços RESTful. Sua sintaxe fluente e fácil de usar facilita a criação e validação de solicitações HTTP.
+
+2.2 Cucumber
+Cucumber, baseado em Behavior-Driven Development (BDD), é uma ferramenta que utiliza linguagem natural para expressar requisitos do sistema. Integrado com o Rest Assured, o Cucumber permite criar cenários de teste legíveis e compreensíveis.
+
+3. Estrutura do Projeto
+3.1 Diretórios Principais
+scss
+Copy code
+project-root
+│
+├── src
+│   └── test
+│       ├── java
+│       │   ├── com.example.tests
+│       │   │   ├── stepdefinitions
+│       │   │   │   └── ... (definições de passos para Cucumber)
+│       │   │   └── util
+│       │   │       └── ... (classes utilitárias para testes)
+│       │   │
+│       └── resources
+│           ├── features
+│           │   └── ... (arquivos de especificação em Gherkin)
+│           │
+│           └── config
+│               └── ... (configurações do Rest Assured)
+│
+├── infra
+│   └── ... (scripts e configurações relacionados à infraestrutura)
+├── target
+│   └── ... (gerada na execução - contem relatório de testes)
+│
+└── pom.xml (configuração do Maven)
+
+3.2 Descrição
+src/test/java/com.example.tests: Pacote para os testes automatizados.
+stepdefinitions: Definições de passos para os cenários Cucumber.
+util: Classes utilitárias para configurações e operações comuns de teste.
+src/test/resources/features: Armazena os arquivos de especificação em linguagem Gherkin para os cenários de teste.
+src/test/resources/config: Contém as configurações para o Rest Assured.
+infra: Pasta dedicada a scripts e configurações relacionadas à infraestrutura.
+
+4. Configuração do Ambiente
+
+4.1 Dependências
+Java 8 ou superior
+Maven
+Rest Assured
+Cucumber
+4.2 Configuração do Maven
+Adicione as dependências necessárias ao arquivo pom.xml:
+
+xml
+Copy code
+<!-- Rest Assured -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>4.4.0</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- Cucumber -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>7.1.0</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>7.1.0</version>
+    <scope>test</scope>
+</dependency>
+
+
+5. Execução dos Testes
+5.1 Comando Maven
+Para executar os testes, utilize o seguinte comando Maven:
+
+bash
+Copy code
+mvn test
+Este comando iniciará a execução dos cenários de teste definidos nos arquivos Gherkin.
+
+6. Configuração da Esteira de Integração Contínua
+6.1 Instruções para a Esteira (CI/CD)
+A esteira de integração contínua pode ser configurada da seguinte maneira:
+
+Build do Projeto: Configure o build do projeto utilizando o Maven.
+Execução dos Testes: Execute os testes automatizados usando o comando Maven mvn test.
+Testes Regressivos: Integre testes regressivos para garantir que as alterações não afetem as funcionalidades existentes. Estes testes devem incluir diversas chamadas às APIs para manter a integridade do fluxo pré-existente.
+Integração com Ambiente de Testes: Integre a esteira com o ambiente de testes para avaliação contínua da aplicação.
+Certifique-se de ajustar as configurações conforme necessário, garantindo uma execução suave da esteira de integração contínua.
+
+7. Testes Regressivos
+Os testes regressivos desempenham um papel crucial na preservação da integridade do sistema, especialmente ao lidar com alterações e novas implementações. Estes testes são projetados para:
+
+Chamadas Variadas às APIs: Realizar diversas chamadas às APIs, representando cenários críticos e comuns da aplicação.
+Manter a Integridade do Fluxo: Certificar-se de que as mudanças não impactam negativamente no fluxo pré-existente.
+Refatoração Segura: Garantir que qualquer refatoração mantenha a estabilidade do sistema.
+Ao introduzir novos recursos, modificações ou ajustes, estenda os testes regressivos para abranger casos relacionados às alterações. Mantenha um conjunto abrangente para garantir a estabilidade do sistema ao longo do tempo.
+
+8. Considerações Finais
+Este documento fornece uma visão detalhada do projeto de testes regressivos com Rest Assured e Cucumber, focando na execução de várias chamadas de API para verificar a integridade do fluxo existente. Mantenha a documentação atualizada conforme o projeto evolui e siga as melhores práticas de automação de testes para garantir a eficácia, manutenibilidade e estabilidade do conjunto de testes. Este é um passo crucial para assegurar a qualidade contínua do software desenvolvido.
